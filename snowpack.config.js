@@ -1,0 +1,22 @@
+module.exports = {
+    mount: {
+        public: '/',
+        src: '/_dist_',
+    },
+    plugins: [
+        '@snowpack/plugin-react-refresh',
+
+        '@snowpack/plugin-dotenv',
+        '@snowpack/plugin-sass',
+
+        [
+            '@snowpack/plugin-webpack',
+            {
+                htmlMinifierOptions: true,
+                extendConfig: (webpackConfig) => {
+                    return webpackConfig;
+                },
+            },
+        ],
+    ],
+};
